@@ -9,6 +9,9 @@ export default {
         grey: 'hsl(231, 7%, 60%)',
       },
     },
+    fontFamily: {
+      sans: ['Roboto', 'system-ui', 'sans-serif'],
+    },
   },
   plugins: [],
 };
