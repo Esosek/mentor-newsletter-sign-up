@@ -1,5 +1,8 @@
 ---
-
+import { Image } from 'astro:assets';
+import signUpImage from '../assets/images/illustration-sign-up-desktop.svg';
+import signUpImageMobile from '../assets/images/illustration-sign-up-mobile.svg';
+import iconList from '../assets/images/icon-list.svg';
 ---
 
 <html lang="en">
@@ -17,7 +20,63 @@
     />
     <title>Newsletter sign-up</title>
   </head>
-  <body>
-    <h1>Astro</h1>
+  <body class="min-h-lvh bg-gray-dark flex items-center justify-center">
+    <main
+      class="max-w-[50rem] bg-white rounded-3xl sm:p-4 grid gap-4 md:grid-cols-2"
+    >
+      <div
+        class="flex flex-col justify-center p-6 sm:p-8 gap-6 order-2 md:order-none"
+      >
+        <h1 class="font-bold text-5xl">Stay updated!</h1>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+        <ul>
+          <li class="flex gap-4 my-2">
+            <Image src={iconList} alt="" />
+            Product discovery and building what matters
+          </li>
+          <li class="flex gap-4 my-2">
+            <Image src={iconList} alt="" />
+            Measuring to ensure updates are a success
+          </li>
+          <li class="flex gap-4 my-2">
+            <Image src={iconList} alt="" />
+            And much more!
+          </li>
+        </ul>
+
+        <form id="newsletter-form">
+          <label for="email-input" class="text-sm font-bold"
+            >Email address</label
+          >
+          <input
+            type="email"
+            name="email-input"
+            id="email-input"
+            placeholder="email@company.com"
+            class="block w-full py-3 px-4 my-1 border border-gray/50 rounded-md focus:outline-gray"
+          />
+          <button
+            type="submit"
+            class="w-full rounded-md p-3 my-4 bg-gray-dark text-white hover:bg-gradient-to-r hover:from-pink-500 hover:to-primary transition-colors hover:shadow-xl hover:shadow-primary/50"
+            >Subscribe to monthly newsletter</button
+          >
+        </form>
+      </div>
+      <picture class="flex justify-center order-1 md:order-none">
+        <source media="(max-width: 400px)" srcset={signUpImageMobile.src} />
+        <source media="(min-width: 401px)" srcset={signUpImage.src} />
+        <Image
+          src={signUpImage}
+          alt="Illustrative image of graphs and numbers"
+        />
+      </picture>
+    </main>
   </body>
 </html>
+
+<script>
+  const formElement = document.getElementById('newsletter-form');
+  formElement.addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
+</script>

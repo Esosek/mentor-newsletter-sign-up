@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         primary: 'hsl(4, 100%, 67%)',
-        'grey-dark': 'hsl(235, 18%, 26%)',
-        grey: 'hsl(231, 7%, 60%)',
+        'gray-dark': 'hsl(235, 18%, 26%)',
+        gray: 'hsl(231, 7%, 60%)',
       },
     },
     fontFamily: {
