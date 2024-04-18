@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/Esosek/mentor-newsletter-sign-up](https://github.com/Esosek/mentor-newsletter-sign-up)
+- Live Site URL: [https://esosek.github.io/mentor-newsletter-sign-up/](https://esosek.github.io/mentor-newsletter-sign-up/)
 
 ## My process
 
