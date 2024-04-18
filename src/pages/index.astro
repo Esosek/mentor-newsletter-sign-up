@@ -22,7 +22,7 @@ import iconList from '../assets/images/icon-list.svg';
   </head>
   <body class="min-h-lvh bg-gray-dark flex items-center justify-center">
     <main
-      class="max-w-[54rem] bg-white rounded-3xl sm:p-4 grid gap-4 md:grid-cols-2"
+      class="max-w-[54rem] bg-white sm:rounded-3xl sm:p-4 grid gap-4 md:grid-cols-2"
     >
       <div
         class="flex flex-col justify-center p-6 sm:p-8 gap-6 order-2 md:order-none"
@@ -81,21 +81,40 @@ import iconList from '../assets/images/icon-list.svg';
 
 <script>
   const formElement = document.getElementById('newsletter-form');
-  const emailInput = document.getElementById('email-input');
+  const emailInputElement = document.getElementById(
+    'email-input'
+  ) as HTMLInputElement;
   const errorMessage = document.getElementById('error-message');
 
-  formElement.addEventListener('submit', (e) => {
-    e.preventDefault();
-    showError();
-  });
+  let userEmailInput = '';
 
-  emailInput.addEventListener('focus', (e) => {
-    hideError();
-  });
+  const successContent =
+    () => `<main class="max-w-[30rem] bg-white sm:rounded-3xl">
+      <div
+        class="min-h-lvh sm:min-h-min grid grid-rows-[1fr_auto] items-center p-4 sm:p-12"
+      >
+        <div class="space-y-8 mb-8">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A"/><stop offset="100%" stop-color="#FF527B"/></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)"/><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/></g></svg>
+          <h1 class="font-bold text-gray-dark text-4xl sm:text-5xl">
+            Thanks for subscribing!
+          </h1>
+          <p>
+            A confirmation email ahs been sent to <span class="font-bold"
+              >${userEmailInput}</span
+            >. Please open it and click the button inside to confirm your
+            subscription.
+          </p>
+        </div>
+        <button
+          class="w-full rounded-md p-3 my-4 bg-gray-dark text-white hover:bg-gradient-to-r hover:from-pink-500 hover:to-primary transition-colors hover:shadow-xl hover:shadow-primary/50"
+          >Dismiss message</button
+        >
+      </div>
+    </main>`;
 
   function showError() {
-    emailInput.classList.remove('border-gray/50');
-    emailInput.classList.add(
+    emailInputElement.classList.remove('border-gray/50');
+    emailInputElement.classList.add(
       'text-primary',
       'bg-primary/25',
       'placeholder:text-primary'
@@ -104,12 +123,37 @@ import iconList from '../assets/images/icon-list.svg';
   }
 
   function hideError() {
-    emailInput.classList.add('border-gray/50');
-    emailInput.classList.remove(
+    emailInputElement.classList.add('border-gray/50');
+    emailInputElement.classList.remove(
       'text-primary',
       'bg-primary/25',
       'placeholder:text-primary'
     );
     errorMessage.classList.add('hidden');
   }
+
+  function validateForm() {
+    return (
+      userEmailInput.trim().length > 2 &&
+      userEmailInput.includes('@') &&
+      userEmailInput.includes('.')
+    );
+  }
+
+  function submitForm() {
+    document.body.innerHTML = successContent();
+  }
+
+  formElement.addEventListener('submit', (e) => {
+    e.preventDefault();
+    validateForm() ? submitForm() : showError();
+  });
+
+  emailInputElement.addEventListener('focus', (_) => {
+    hideError();
+  });
+
+  emailInputElement.addEventListener('input', (_) => {
+    userEmailInput = emailInputElement.value;
+  });
 </script>
