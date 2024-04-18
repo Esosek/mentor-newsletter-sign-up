@@ -40,14 +40,14 @@ Users should be able to:
 
 ### Built with
 
-– Vanilla JS
+- Vanilla JS
 - [Astro](https://astro.build/) – Web framework
 - [TailwindCSS](https://tailwindcss.com/) – CSS framework
 
 ### What I learned
 
-– Using vanilla JS for reactive UI is not convenient
-– Handling more complex states and effects with Tailwind
+- Using vanilla JS for reactive UI is not convenient
+- Handling more complex states and effects with Tailwind
 
 ## Author
 
