@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content="Astro v4.6.1" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Newsletter sign-up</title>
+    <link rel="stylesheet" href="./_astro/index.DcM4MCJQ.css" />
+    <script type="module">
+      const i = document.getElementById('newsletter-form'),
+        e = document.getElementById('email-input'),
+        s = document.getElementById('error-message');
+      let t = '';
+      const n = () => `<main class="max-w-[30rem] bg-white sm:rounded-3xl">
+      <div
+        class="min-h-lvh sm:min-h-min grid grid-rows-[1fr_auto] items-center p-4 sm:p-12"
+      >
+        <div class="space-y-8 mb-8">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A"/><stop offset="100%" stop-color="#FF527B"/></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)"/><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/></g></svg>
+          <h1 class="font-bold text-gray-dark text-4xl sm:text-5xl">
+            Thanks for subscribing!
+          </h1>
+          <p>
+            A confirmation email ahs been sent to <span class="font-bold"
+              >${t}</span
+            >. Please open it and click the button inside to confirm your
+            subscription.
+          </p>
+        </div>
+        <button
+          class="w-full rounded-md p-3 my-4 bg-gray-dark text-white hover:bg-gradient-to-r hover:from-pink-500 hover:to-primary transition-colors hover:shadow-xl hover:shadow-primary/50"
+          >Dismiss message</button
+        >
+      </div>
+    </main>`;
+      function o() {
+        e.classList.remove('border-gray/50'),
+          e.classList.add(
+            'text-primary',
+            'bg-primary/25',
+            'placeholder:text-primary'
+          ),
+          s.classList.remove('hidden');
+      }
+      function a() {
+        e.classList.add('border-gray/50'),
+          e.classList.remove(
+            'text-primary',
+            'bg-primary/25',
+            'placeholder:text-primary'
+          ),
+          s.classList.add('hidden');
+      }
+      function d() {
+        return t.trim().length > 2 && t.includes('@') && t.includes('.');
+      }
+      function l() {
+        document.body.innerHTML = n();
+      }
+      i.addEventListener('submit', (r) => {
+        r.preventDefault(), d() ? l() : o();
+      });
+      e.addEventListener('focus', (r) => {
+        a();
+      });
+      e.addEventListener('input', (r) => {
+        t = e.value;
+      });
+    </script>
+  </head>
+  <body class="min-h-lvh bg-gray-dark flex items-center justify-center">
+    <main
+      class="max-w-[54rem] bg-white sm:rounded-3xl sm:p-4 grid gap-4 md:grid-cols-2"
+    >
+      <div
+        class="flex flex-col justify-center p-6 sm:p-8 gap-6 order-2 md:order-none"
+      >
+        <h1 class="font-bold text-5xl">Stay updated!</h1>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+        <ul>
+          <li class="flex gap-4 my-2">
+            <img
+              src="/_astro/icon-list.B9WInSod_WvCsA.svg"
+              alt=""
+              width="21"
+              height="21"
+              loading="lazy"
+              decoding="async"
+            />
+            Product discovery and building what matters
+          </li>
+          <li class="flex gap-4 my-2">
+            <img
+              src="/_astro/icon-list.B9WInSod_WvCsA.svg"
+              alt=""
+              width="21"
+              height="21"
+              loading="lazy"
+              decoding="async"
+            />
+            Measuring to ensure updates are a success
+          </li>
+          <li class="flex gap-4 my-2">
+            <img
+              src="/_astro/icon-list.B9WInSod_WvCsA.svg"
+              alt=""
+              width="21"
+              height="21"
+              loading="lazy"
+              decoding="async"
+            />
+            And much more!
+          </li>
+        </ul>
+        <form id="newsletter-form">
+          <div class="flex justify-between">
+            <label for="email-input" class="text-sm font-bold"
+              >Email address</label
+            >
+            <p id="error-message" class="text-sm font-bold text-primary hidden">
+              Valid email required
+            </p>
+          </div>
+          <input
+            type="email"
+            name="email-input"
+            id="email-input"
+            placeholder="email@company.com"
+            class="block w-full py-3 px-4 my-1 border border-gray/50 rounded-md focus:outline-gray"
+          />
+          <button
+            type="submit"
+            class="w-full rounded-md p-3 my-4 bg-gray-dark text-white hover:bg-gradient-to-r hover:from-pink-500 hover:to-primary transition-colors hover:shadow-xl hover:shadow-primary/50"
+          >
+            Subscribe to monthly newsletter
+          </button>
+        </form>
+      </div>
+      <picture class="flex justify-center order-1 md:order-none">
+        <source
+          media="(max-width: 400px)"
+          srcset="/_astro/illustration-sign-up-mobile.DkrvVqU_.svg"
+        />
+        <source
+          media="(min-width: 401px)"
+          srcset="/_astro/illustration-sign-up-desktop.DX21DkyK.svg"
+        />
+        <img
+          src="/_astro/illustration-sign-up-desktop.DX21DkyK_Z1mcM2f.svg"
+          alt="Illustrative image of graphs and numbers"
+          width="400"
+          height="593"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </main>
+  </body>
+</html>
