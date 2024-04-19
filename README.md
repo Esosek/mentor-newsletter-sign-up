@@ -48,6 +48,7 @@ Users should be able to:
 
 - Using vanilla JS for reactive UI is not convenient
 - Handling more complex states and effects with Tailwind
+- How to deploy Astro project do GitHub pages
 
 ## Author
 
