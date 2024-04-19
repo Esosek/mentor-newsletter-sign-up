@@ -6,4 +6,5 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://esosek.github.io',
+  base: 'mentor-newsletter-sign-up',
 });
